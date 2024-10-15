@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Tapitas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía moderna */
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Fondo oscuro */
+            color: #f5f5f5; /* Color de texto claro */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background: linear-gradient(to right, #ff6f00, #ffcc00); /* Degradado atractivo */
+            color: white;
+            text-align: center;
+            padding: 2em 0;
+            width: 100%;
+            position: relative;
+            overflow: hidden; /* Para recortar efectos */
+        }
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Sombra de texto */
+        }
+        .section {
+            position: relative; /* Para el efecto de partículas */
+            background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+            backdrop-filter: blur(10px); /* Efecto de desenfoque */
+            padding: 40px;
+            margin: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            width: 90%; /* Secciones responsivas */
+            max-width: 600px; /* Ancho máximo */
+            transition: transform 0.3s, box-shadow 0.3s; /* Animaciones */
+        }
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8); /* Sombra más profunda */
+        }
+        .section:active {
+            animation: highlight 0.3s ease; /* Animación de resaltado al tocar */
+        }
+        @keyframes highlight {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 255, 0, 1); /* Sombra amarilla al principio */
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 255, 0, 0.8); /* Más intensa en el medio */
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(255, 255, 0, 0); /* Se desvanecen al final */
+            }
+        }
+        h2 {
+            color: #ffcc00; /* Color de encabezados secundarios */
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px; /* Línea decorativa */
+            height: 4px; /* Grosor de la línea */
+            background: #ff6f00; /* Color de la línea */
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s; /* Animación de la línea */
+        }
+        h2:hover::after {
+            width: 100%; /* Expande la línea al pasar el ratón */
+        }
+        p {
+            line-height: 1.6; /* Espaciado entre líneas */
+            opacity: 0.85; /* Opacidad del texto */
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin: 15px 0;
+            transition: transform 0.3s; /* Animación de imagen */
+        }
+        img:hover {
+            transform: scale(1.05); /* Efecto de imagen al pasar el ratón */
+        }
+        /* Estilo de partículas */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            pointer-events: none; /* Para evitar interferencia con el mouse */
+            animation: float 1s ease-in-out forwards; /* Animación de flotación */
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Proyecto Tapitas</h1>
+</header>
+
+<div class="section" onmouseenter="createParticles(event)" onclick="highlightSection(event)">
+    <h2>¿De qué trata el proyecto?</h2>
+    <p>El Proyecto Tapitas se dedica a recolectar tapitas de plástico para ayudar a financiar tratamientos para niños y adultos con cáncer. Cada tapita cuenta, y con tu ayuda podemos hacer una gran diferencia.</p>
+</div>
+
+<div class="section" onmouseenter="createParticles(event)" onclick="highlightSection(event)">
+    <h2>Maestros Involucrados</h2>
+    <p>Los maestros que participan en este proyecto son apasionados por la educación y la solidaridad. Están comprometidos a enseñar a los estudiantes la importancia de ayudar a los demás.</p>
+</div>
+
+<div class="section" onmouseenter="createParticles(event)" onclick="highlightSection(event)">
+    <h2>Imágenes del Proyecto</h2>
+    <img src="proyecto_imagen1.jpg" alt="Imagen del Proyecto 1">
+    <img src="proyecto_imagen2.jpg" alt="Imagen del Proyecto 2">
+    <img src="proyecto_imagen3.jpg" alt="Imagen del Proyecto 3">
+</div>
+
+<script>
+    function createParticles(event) {
+        const section = event.currentTarget; // Sección en la que se pasa el ratón
+        const numParticles = 10; // Número de partículas a crear
+        const rect = section.getBoundingClientRect(); // Obtener el tamaño y posición de la sección
+
+        for (let i = 0; i < numParticles; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`; // Color aleatorio
+            particle.style.width = `${Math.random() * 10 + 5}px`; // Ancho aleatorio
+            particle.style.height = particle.style.width; // Altura igual al ancho
+            particle.style.left = `${Math.random() * rect.width}px`; // Posición aleatoria en el ancho de la sección
+            particle.style.top = `${Math.random() * rect.height}px`; // Posición aleatoria en el alto de la sección
+
+            section.appendChild(particle); // Añadir la partícula a la sección
+
+            // Eliminar la partícula después de que la animación complete
+            particle.addEventListener('animationend', () => {
+                particle.remove();
+            });
+        }
+    }
+
+    function highlightSection(event) {
+        const section = event.currentTarget; // Sección que se toca
+        section.classList.add('active'); // Agregar clase para activar la animación de resaltado
+
+        // Remover la clase después de un breve tiempo para permitir múltiples clics
+        setTimeout(() => {
+            section.classList.remove('active');
+        }, 300);
+    }
+</script>
+
+</body>
+</html>

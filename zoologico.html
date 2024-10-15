@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zoologico</title>
+    <style>
+        /* Estilos globales */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-top: 40px;
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #666;
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 60px;
+        }
+
+        /* Bloque visual principal */
+        .hero-section {
+            background-color: #ff6363;
+            color: white;
+            padding: 60px 30px;
+            border-radius: 15px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-section h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-section p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero-section .button-link {
+            display: inline-block;
+            background-color: #fff;
+            color: #ff6363;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: 600;
+        }
+
+        .hero-section .button-link:hover {
+            background-color: #ffd1d1;
+            transform: translateY(-3px);
+        }
+
+        /* Sección con tarjetas */
+        .card-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            flex-basis: calc(33.333% - 20px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #ff6363;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Caja de información */
+        .info-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 1000px;
+            width: 100%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        .info-section h3 {
+            font-size: 28px;
+            color: #ff6363;
+            margin-bottom: 20px;
+        }
+
+        .info-section p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Adaptación responsiva */
+        @media (max-width: 768px) {
+            .card {
+                flex-basis: calc(50% - 20px);
+            }
+
+            .hero-section h2 {
+                font-size: 32px;
+            }
+
+            .hero-section p {
+                font-size: 18px;
+            }
+
+            .hero-section .button-link {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .card {
+                flex-basis: 100%;
+            }
+
+            .hero-section h2 {
+                font-size: 28px;
+            }
+
+            .hero-section p {
+                font-size: 16px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Título del proyecto -->
+    <h1>zoologico</h1>
+
+    <!-- Sección visual principal (Hero) -->
+    <div class="main-container">
+        <div class="hero-section">
+            <h2></h2>
+            <p>El objetivo del proyecto del viaje al zoologico fue con un fin de conocer a los animales y las diferencias de especies que existen, con el fin de que los alumnos coonocieran mas aceca de los animales.</p>
+            <a href="#" class="button-link">Aprende mas sobre el zoologico</a>
+        </div>
+    </div>
+
+    <!-- Sección de tarjetas informativas -->
+    <div class="card-section">
+        <div class="card">
+            <h3>¿Cómo Ayudar?</h3>
+            <p>Podemos ayudar haciendo platicas sobre los animales en peligro de exstincion con el fin de cuidar mas de esos animales.</p>
+        </div>
+        <div class="card">
+            <h3>Participa</h3>
+            <p>Únete a nuestros eventos de recolección o difunde el mensaje en tu comunidad.</p>
+        </div>
+        <div class="card">
+            <h3>Impacto</h3>
+            <p>Conocer las intalaciones y la historia que dan de cada animal,sobre la comida y los cuidados que dan en el zoologico.</p>
+        </div>
+    </div>
+
+    <!-- Sección de información adicional -->
+    <div class="info-section">
+        <h3>¿Por qué es importante?</h3>
+        <p>El cáncer es una de las enfermedades más devastadoras. Tu ayuda proporciona a las familias los recursos que necesitan para cubrir tratamientos médicos y mejorar su calidad de vida.</p>
+    </div>
+
+</body>
+</html>
